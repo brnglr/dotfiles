@@ -1,45 +1,30 @@
 working_dir=$(pwd)
+
+install_config () {
+	# if config file exists in $HOME, delete it
+	if [[ -L "$HOME/$1" ]] || [[ -f "$HOME/$1" ]]; then
+		echo "Deleting $HOME/$1"
+		rm "$HOME/$1"
+	fi
+	ln -s "$(pwd)/$2" "$HOME/$1"
+	echo "installed $HOME/$1"
+}
+
 if [[ $working_dir == *'/dotfiles' ]]; then
 	# Install .tmux.conf
-	if [[ -L "$HOME/.tmux.conf" ]] || [[ -f "$HOME/.tmux.conf" ]]; then
-		echo "Deleting $HOME/.tmux.conf"
-		rm "$HOME/.tmux.conf"
-	fi
-	ln -s "$(pwd)/tmux.conf" "$HOME/.tmux.conf"
-	echo "installed $HOME/.tmux.conf"
+	install_config '.tmux.conf' 'tmux.conf'
 
 	# Install .bash_aliases
-	if [[ -L "$HOME/.bash_aliases" ]] || [[ -f "$HOME/.bash_aliases" ]]; then
-		echo '.bash_aliases already exists, skipping .bash_aliases installation'
-	else
-		ln -s "$(pwd)/bash_aliases" "$HOME/.bash_aliases"
-		echo "installed $HOME/.bash_aliases"
-	fi
+	install_config '.bash_aliases' 'bash_aliase'
 
 	# Install .vimrc
-	if [[ -L "$HOME/.vimrc" ]] || [[ -f "$HOME/.vimrc" ]]; then
-		echo '.vimrc already exists, skipping .vimrc installation'
-	else
-		ln -s "$(pwd)/vimrc" "$HOME/.vimrc"
-		echo "installed $HOME/.vimrc"
-	fi
+	install_config '.vimrc' 'vimrc'
 
 	# Install .Xmodmap
-	if [[ -L "$HOME/.Xmodmap" ]] || [[ -f "$HOME/.Xmodmap" ]]; then
-		echo '.Xmodmap already exists, skipping .Xmodmap installation'
-	else
-		ln -s "$(pwd)/Xmodmap" "$HOME/.Xmodmap"
-		echo "installed $HOME/.Xmodmap"
-	fi
+	install_config '.Xmodmap' 'Xmodmap'
 
 	# Install .gitconfig
-	if [[ -L "$HOME/.gitconfig" ]] || [[ -f "$HOME/.gitconfig" ]]; then
-		echo '.gitconfig already exists, skipping .gitconfig installation'
-	else
-		ln -s "$(pwd)/gitconfig" "$HOME/.gitconfig"
-		echo "installed $HOME/.gitconfig"
-	fi
-
+	install_config '.gitconfig' 'gitconfig'
 else
 	echo 'This script needs to be run with the repository as the working directory'
 fi
