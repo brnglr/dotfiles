@@ -2,11 +2,11 @@ working_dir=$(pwd)
 if [[ $working_dir == *'/dotfiles' ]]; then
 	# Install .tmux.conf
 	if [[ -L "$HOME/.tmux.conf" ]] || [[ -f "$HOME/.tmux.conf" ]]; then
-		echo '.tmux.conf already exists, skipping .tmux.conf installation'
-	else
-		ln -s "$(pwd)/tmux.conf" "$HOME/.tmux.conf"
-		echo "installed $HOME/.tmux.conf"
+		echo "Deleting $HOME/.tmux.conf"
+		rm "$HOME/.tmux.conf"
 	fi
+	ln -s "$(pwd)/tmux.conf" "$HOME/.tmux.conf"
+	echo "installed $HOME/.tmux.conf"
 
 	# Install .bash_aliases
 	if [[ -L "$HOME/.bash_aliases" ]] || [[ -f "$HOME/.bash_aliases" ]]; then
