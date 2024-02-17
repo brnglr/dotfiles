@@ -24,6 +24,14 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 		echo 'installed .vimrc'
 	fi
 
+	# Install .Xmodmap
+	if [[ -L "$HOME/.Xmodmap" ]]; then
+		echo '.Xmodmap already exists, skipping .Xmodmap installation'
+	else
+		ln -s "$(pwd)/Xmodmap" "$HOME/.Xmodmap"
+		echo 'installed .Xmodmap'
+	fi
+
 else
 	echo 'This script needs to be run with the repository as the working directory'
 fi
