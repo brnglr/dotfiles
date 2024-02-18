@@ -31,6 +31,9 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 
 	# Install .xinitrc
 	install_config '.xinitrc' 'xinitrc'
+
+	# Install .Xresources
+	install_config '.Xresources' 'Xresources'
 else
 	echo 'This script needs to be run with the repository as the working directory'
 fi
