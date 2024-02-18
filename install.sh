@@ -28,6 +28,9 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 
 	# Install i3 config
 	install_config '.config/i3/config' 'i3_config'
+
+	# Install .xinitrc
+	install_config '.xinitrc' 'xinitrc'
 else
 	echo 'This script needs to be run with the repository as the working directory'
 fi
