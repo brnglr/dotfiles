@@ -15,7 +15,7 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 	install_config '.tmux.conf' 'tmux.conf'
 
 	# Install .bash_aliases
-	install_config '.bash_aliases' 'bash_aliase'
+	install_config '.bash_aliases' 'bash_aliases'
 
 	# Install .vimrc
 	install_config '.vimrc' 'vimrc'
