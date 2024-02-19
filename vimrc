@@ -11,3 +11,6 @@ set ts=4 sw=4
 " Without this, vim has different colors
 " in tmux. See https://unix.stackexchange.com/questions/348771/why-do-vim-colors-look-different-inside-and-outside-of-tmux.
 set background=dark
+
+" Highlighted search
+set hlsearch
