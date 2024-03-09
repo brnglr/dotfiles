@@ -14,3 +14,8 @@ set background=dark
 
 " Highlighted search
 set hlsearch
+
+" Install plugins using vim-plug
+call plug#begin()
+	Plug 'airblade/vim-gitgutter'
+call plug#end()
