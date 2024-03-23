@@ -6,6 +6,7 @@ filetype indent on
 
 " make tab 4 spaces
 set ts=4 sw=4
+set expandtab
 
 " Set dark background.
 " Without this, vim has different colors
