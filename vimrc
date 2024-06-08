@@ -18,5 +18,6 @@ set hlsearch
 
 " Install plugins using vim-plug
 call plug#begin()
-	Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'farmergreg/vim-lastplace'
 call plug#end()
