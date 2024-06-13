@@ -1,3 +1,10 @@
+# Check for arguments
+if [ -z "$1" ]; then
+    echo "Please specify keyboard type. Options: apple, normal"
+    exit
+fi
+
+keyboard_type=$1
 working_dir=$(pwd)
 
 install_config () {
@@ -21,7 +28,11 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 	install_config '.vimrc' 'vimrc'
 
 	# Install .Xmodmap
-	install_config '.Xmodmap' 'Xmodmap'
+    if [ "$keyboard_type" = 'apple' ]; then
+        install_config '.Xmodmap' 'xmodmaps/apple'
+    else
+        install_config '.Xmodmap' 'xmodmaps/normal'
+    fi
 
 	# Install .gitconfig
 	install_config '.gitconfig' 'gitconfig'
