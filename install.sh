@@ -27,6 +27,9 @@ if [[ $working_dir == *'/dotfiles' ]]; then
 	# Install .vimrc
 	install_config '.vimrc' 'vimrc'
 
+    # Install nvim init.lua
+    install_config '.config/nvim/init.lua' 'nvim.init.lua'
+
 	# Install .Xmodmap
     if [ "$keyboard_type" = 'apple' ]; then
         install_config '.Xmodmap' 'xmodmaps/apple'

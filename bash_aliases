@@ -12,3 +12,6 @@ alias ct='cargo test'
 
 # i3 lock
 alias lockscreen="i3lock -c 000000"
+
+# use nvim
+alias vi='nvim'
